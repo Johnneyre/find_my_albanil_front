@@ -1,26 +1,26 @@
 {
-  "name": "find_my_albanil_front",
+  "name": "admin-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/find_my_albanil_front/src",
+  "sourceRoot": "apps/admin-app/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/find_my_albanil_front",
-        "browser": "apps/find_my_albanil_front/src/main.ts",
+        "outputPath": "dist/apps/admin-app",
+        "browser": "apps/admin-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/find_my_albanil_front/tsconfig.app.json",
+        "tsConfig": "apps/admin-app/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/find_my_albanil_front/public"
+            "input": "apps/admin-app/public"
           }
         ],
-        "styles": ["apps/find_my_albanil_front/src/styles.css"]
+        "styles": ["apps/admin-app/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -51,10 +51,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "find_my_albanil_front:build:production"
+          "buildTarget": "admin-app:build:production"
         },
         "development": {
-          "buildTarget": "find_my_albanil_front:build:development"
+          "buildTarget": "admin-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -62,7 +62,7 @@
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
       "options": {
-        "buildTarget": "find_my_albanil_front:build"
+        "buildTarget": "admin-app:build"
       }
     },
     "lint": {
@@ -72,15 +72,15 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/find_my_albanil_front"
+        "reportsDirectory": "../../coverage/apps/admin-app"
       }
     },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "find_my_albanil_front:build",
-        "staticFilePath": "dist/apps/find_my_albanil_front/browser",
+        "buildTarget": "admin-app:build",
+        "staticFilePath": "dist/apps/admin-app/browser",
         "spa": true
       }
     }

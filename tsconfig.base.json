@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@find-my-albanil-front/data-access": ["libs/data-access/src/index.ts"],
+      "@find-my-albanil-front/shared-entities": [
+        "libs/shared-entities/src/index.ts"
+      ],
+      "@find-my-albanil-front/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@find-my-albanil-front/ui-shared-lib": ["ui-shared-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
