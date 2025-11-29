@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@find-my-albanil-front/auth": ["libs/auth/src/index.ts"],
       "@find-my-albanil-front/data-access": ["libs/data-access/src/index.ts"],
       "@find-my-albanil-front/shared-entities": [
         "libs/shared-entities/src/index.ts"

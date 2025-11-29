@@ -862,4 +862,6 @@ nx g &#64;nx/angular:component ui/src/lib/button</pre>
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcome {}
+export class NxWelcomeComponent {}
+
+export default NxWelcomeComponent;

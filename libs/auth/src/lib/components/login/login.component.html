@@ -1,0 +1,117 @@
+<main
+  class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center bg-white dark:bg-background-dark p-4"
+>
+  <!-- Logo Superior Izquierdo -->
+  <div class="absolute top-4 left-4 md:top-8 md:left-8">
+    <lib-logo [size]="'medium'" [variant]="'circle'" [showText]="true" />
+  </div>
+
+  <!-- Botón de Tema Superior Derecho -->
+  <div class="absolute top-4 right-4 md:top-8 md:right-8">
+    <lib-theme-toggle />
+  </div>
+
+  <!-- Tarjeta Central -->
+  <section
+    class="relative flex w-full max-w-md flex-col items-center justify-center rounded-xl bg-white dark:bg-industrial-gray-dark p-6 md:p-8 shadow-2xl"
+  >
+    <!-- Logo y Título -->
+    <header class="mb-2 flex flex-col items-center">
+      <lib-logo
+        [size]="'large'"
+        [variant]="'circle'"
+        [showText]="false"
+        class="mb-3"
+      />
+      <h1 class="text-2xl font-bold text-industrial-gray-dark dark:text-white">
+        Find My Builder
+      </h1>
+    </header>
+
+    <p
+      class="text-industrial-gray dark:text-gray-300 tracking-light text-center text-base font-medium leading-tight mb-8"
+    >
+      Conectando a los profesionales de la construcción.
+    </p>
+
+    <!-- Mensaje de Error -->
+    @if (errorMessage) {
+    <article
+      class="w-full mb-4 p-3 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 rounded-lg"
+      role="alert"
+    >
+      <p class="text-red-700 dark:text-red-300 text-sm">{{ errorMessage }}</p>
+    </article>
+    }
+
+    <!-- Formulario -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-full">
+      <!-- Campo de Email -->
+      <div class="mb-4">
+        <lib-input-text
+          formControlName="email"
+          [label]="'Correo Electrónico'"
+          [type]="'email'"
+          [placeholder]="'tu@email.com'"
+          [icon]="'email'"
+        />
+      </div>
+
+      <!-- Campo de Contraseña -->
+      <div class="mb-4">
+        <lib-input-text
+          formControlName="password"
+          [label]="'Contraseña'"
+          [type]="'password'"
+          [placeholder]="'Ingresa tu contraseña'"
+          [icon]="'lock'"
+        />
+      </div>
+
+      <!-- ¿Olvidaste tu contraseña? -->
+      <div class="text-right mb-2">
+        <a
+          routerLink="/password-recovery"
+          class="text-trust-blue dark:text-blue-400 text-sm font-normal leading-normal hover:underline"
+        >
+          ¿Olvidaste tu contraseña?
+        </a>
+      </div>
+
+      <!-- Botón Iniciar Sesión -->
+      <lib-primary-button
+        [type]="'submit'"
+        [text]="'Iniciar Sesión'"
+        [disabled]="loginForm.invalid"
+        [loading]="isLoading"
+        [loadingText]="'Cargando...'"
+        class="mt-6"
+      />
+
+      <!-- Separador -->
+      <div class="flex items-center my-6">
+        <hr class="flex-grow border-gray-300 dark:border-industrial-gray" />
+        <span class="px-4 text-sm text-industrial-gray dark:text-gray-400"
+          >O</span
+        >
+        <hr class="flex-grow border-gray-300 dark:border-industrial-gray" />
+      </div>
+
+      <!-- Botón Google -->
+      <lib-google-signin-button (googleSignIn)="onGoogleSignIn()" />
+
+      <!-- Enlace de Registro -->
+      <footer class="mt-8 text-center">
+        <p class="text-industrial-gray dark:text-gray-300 text-sm">
+          ¿No tienes cuenta?
+          <a
+            href="#"
+            class="font-semibold text-trust-blue dark:text-blue-400 hover:underline"
+          >
+            Regístrate
+          </a>
+        </p>
+      </footer>
+    </form>
+  </section>
+</main>

@@ -1,82 +1,86 @@
-# FindMyAlbanilFront
+# Find My Albañil (Frontend)
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Bienvenido al repositorio frontend de **Find My Albañil**, una plataforma moderna diseñada para conectar a profesionales de la construcción con clientes que necesitan sus servicios. Este proyecto está construido utilizando **Angular** dentro de un monorepositorio **Nx**, asegurando escalabilidad, modularidad y un excelente rendimiento.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## 🚀 Tecnologías Principales
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Este proyecto utiliza un stack tecnológico robusto y moderno:
 
-## Finish your CI setup
+- **[Angular](https://angular.io/)**: Framework principal para la construcción de la interfaz de usuario.
+- **[Nx](https://nx.dev/)**: Herramienta de gestión de monorepositorios para un desarrollo eficiente.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Framework de utilidad para un diseño rápido, responsivo y personalizado.
+- **[Zod](https://zod.dev/)**: Librería de validación de esquemas TypeScript-first para formularios robustos y seguros.
+- **[RxJS](https://rxjs.dev/)**: Programación reactiva para el manejo de eventos y estado.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/gYSaLv3lyH)
+## 📂 Estructura del Proyecto
 
+El proyecto sigue una arquitectura modular organizada en aplicaciones y librerías:
 
-## Run tasks
+### Aplicaciones (`apps/`)
 
-To run the dev server for your app, use:
+- **`user-app`**: La aplicación principal para los usuarios finales (clientes y profesionales).
+- **`admin-app`**: Panel de administración para la gestión de la plataforma.
 
-```sh
-npx nx serve find_my_albanil_front
+### Librerías (`libs/`)
+
+- **`auth`**: Módulo de autenticación que contiene componentes de login, registro y recuperación de contraseña, así como la lógica de seguridad.
+- **`shared-ui`**: Librería de componentes de interfaz reutilizables (botones, inputs, logos, etc.) y utilidades de diseño.
+- **`data-access`**: Servicios y lógica para la comunicación con el backend y manejo de datos.
+
+## ✨ Características Clave
+
+- **Validación en Tiempo Real**: Integración avanzada de **Zod** con Angular Reactive Forms para feedback inmediato al usuario.
+- **Componentes Reutilizables**: Arquitectura de componentes UI agnósticos y altamente configurables (`lib-input-text`, `lib-primary-button`).
+- **HTML Semántico**: Estructura de código optimizada para accesibilidad y SEO.
+- **Diseño Responsivo y Tema Oscuro**: Interfaz adaptada a todos los dispositivos y preferencias de usuario.
+
+## 🛠️ Configuración y Ejecución
+
+### Prerrequisitos
+
+- Node.js (v18 o superior)
+- pnpm (recomendado) o npm
+
+### Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   ```
+2. Instala las dependencias:
+   ```bash
+   pnpm install
+   ```
+
+### Ejecutar el Servidor de Desarrollo
+
+Para iniciar la aplicación de usuario:
+
+```bash
+pnpm nx serve user-app
 ```
 
-To create a production bundle:
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias algún archivo fuente.
 
-```sh
-npx nx build find_my_albanil_front
-```
+### Otras Comandos Útiles
 
-To see all available targets to run for a project, run:
+- **Linting**: Analiza el código en busca de errores.
+  ```bash
+  pnpm nx run-many -t lint
+  ```
+- **Construcción (Build)**: Genera los artefactos de producción.
+  ```bash
+  pnpm nx build user-app
+  ```
+- **Generar Componentes**:
+  ```bash
+  pnpm nx g @nx/angular:component my-component --project=shared-ui
+  ```
 
-```sh
-npx nx show project find_my_albanil_front
-```
+## 🤝 Contribución
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+Las contribuciones son bienvenidas. Por favor, asegúrate de seguir las guías de estilo y ejecutar los tests antes de enviar un Pull Request.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/angular:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Desarrollado con ❤️ por el equipo de Find My Albañil.
