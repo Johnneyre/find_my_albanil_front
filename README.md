@@ -76,11 +76,3 @@ Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente
   ```bash
   pnpm nx g @nx/angular:component my-component --project=shared-ui
   ```
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor, asegúrate de seguir las guías de estilo y ejecutar los tests antes de enviar un Pull Request.
-
----
-
-Desarrollado con ❤️ por el equipo de Find My Albañil.
